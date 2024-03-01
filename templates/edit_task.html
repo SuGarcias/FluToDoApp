@@ -1,0 +1,32 @@
+<!-- edit_task.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Task</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <h1>Edit Task</h1>
+    <div class="form-container">
+        <form method="post">
+            {% csrf_token %}
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" value="{{ form.title.value }}" required>
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" required>{{ form.description.value }}</textarea>
+            <label for="due_date">Due Date:</label>
+            <input type="date" id="due_date" name="due_date" value="{{ form.instance.due_date|date:"Y-m-d" }}" required>
+            <label for="priority">Priority:</label>
+            <select id="priority" name="priority">
+                <option value="HIGH" {% if form.priority.value == "HIGH" %}selected{% endif %}>High</option>
+                <option value="MEDIUM" {% if form.priority.value == "MEDIUM" %}selected{% endif %}>Medium</option>
+                <option value="LOW" {% if form.priority.value == "LOW" %}selected{% endif %}>Low</option>
+            </select>
+            <button type="submit">Save Changes</button>
+        </form>
+    </div>
+</body>
+</html>

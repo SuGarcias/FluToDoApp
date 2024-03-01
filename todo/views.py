@@ -1,11 +1,11 @@
+# views.py
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Task
 from .forms import TaskForm
-# Create your views here.
 
 def task_list(request):
-    tasks = Task.objects.all()
-    return render(request, 'todo/task_list.html', {'tasks': tasks})
+    tasks = Task.objects.all().order_by('priority')
+    return render(request, 'task_list.html', {'tasks': tasks})
 
 def create_task(request):
     if request.method == 'POST':
@@ -15,11 +15,28 @@ def create_task(request):
             return redirect('task_list')
     else:
         form = TaskForm()
-    return render(request, 'todo/create_task.html', {'form': form})
+    return render(request, 'create_task.html', {'form': form})
+
+def edit_task(request, task_id):
+    task = get_object_or_404(Task, pk=task_id)
+    if request.method == 'POST':
+        form = TaskForm(request.POST, instance=task)
+        if form.is_valid():
+            form.save()
+            return redirect('task_list')
+    else:
+        form = TaskForm(instance=task)
+    return render(request, 'edit_task.html', {'form': form})
 
 def mark_task_done(request, task_id):
     task = get_object_or_404(Task, pk=task_id)
     task.done = True
+    task.save()
+    return redirect('task_list')
+
+def mark_task_pending(request, task_id):
+    task = get_object_or_404(Task, pk=task_id)
+    task.done = False
     task.save()
     return redirect('task_list')
 
