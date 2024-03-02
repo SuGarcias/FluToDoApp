@@ -1,14 +1,15 @@
 /* Estilos específicos para tareas */
 
 .task-item {
-    position: relative; /* Agregado */
+    position: relative;
     background-color: #fff;
     border-radius: 5px;
     margin-bottom: 20px;
     padding: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    cursor: pointer; /* Cambiar el cursor al pasar sobre la tarjeta */
-    transition: all 0.3s ease; /* Animación de transición suave */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    list-style-type: none;
 }
 
 .task-item:hover {
@@ -16,17 +17,26 @@
 }
 
 .task-header {
-    display: flex; /* Utilizar flexbox para organizar elementos */
-    align-items: center; /* Centrar verticalmente los elementos */
+    display: flex;
+    align-items: center; /* Alinear al centro verticalmente */
     justify-content: space-between; /* Espacio uniforme entre los elementos */
 }
 
+.task-title {
+    font-size: 24px;
+    color: #797979;
+    text-align: left;
+    margin-left: 10px; /* Espacio entre la checkbox y el título */
+    flex-grow: 1; /* Permite que el título ocupe el espacio restante */
+}
+
 .task-toggle {
-    margin-right: 10px; /* Añadir un margen derecho para separar el botón de alternancia del título */
+    margin-right: 10px;
+    align-self: center; /* Alinear el checkbox al centro verticalmente */
 }
 
 .task-toggle-checkbox {
-    display: none; /* Ocultar el botón de alternancia por defecto */
+    display: none;
 }
 
 .task-toggle-label {
@@ -35,48 +45,35 @@
     height: 20px;
     border-radius: 50%;
     border: 2px solid #ccc;
-    cursor: pointer; /* Cambiar el cursor al pasar sobre el botón de alternancia */
+    cursor: pointer;
 }
 
 .task-toggle-checkbox:checked + .task-toggle-label {
-    background-color: #28a745; /* Cambiar el color del botón de alternancia cuando está marcado */
-}
-
-.task-toggle-label::after {
-    content: "";
-    display: block;
-    width: 10px;
-    height: 10px;
-    background-color: #fff;
-    border-radius: 50%;
-    transform: scale(0); /* Inicialmente ocultar el punto dentro del botón de alternancia */
-    transition: transform 0.3s ease; /* Animación suave de la aparición del punto */
-}
-
-.task-toggle-checkbox:checked + .task-toggle-label::after {
-    transform: scale(1); /* Mostrar el punto dentro del botón de alternancia cuando está marcado */
+    background-color: #28a745;
 }
 
 .task-title {
-    margin-top: 0; /* Eliminar el margen superior del título */
-    cursor: pointer; /* Cambiar el cursor al pasar sobre el título */
+    margin-top: 0;
+    margin-bottom: 10px; /* Espacio entre el título y los botones */
+    font-weight: bold; /* Texto en negrita */
 }
 
 .task-title.completed {
-    text-decoration: line-through; /* Tachar el título cuando la tarea está marcada como hecha */
+    text-decoration: line-through;
 }
 
 .task-details {
-    display: none; /* Ocultar los detalles de la tarea por defecto */
+    margin-top: 10px; /* Espacio entre el título y los botones */
+    display: none;
 }
 
 .task-item.expanded .task-details {
-    display: block; /* Mostrar los detalles de la tarea cuando se expande */
+    display: block;
 }
 
 /* Estilos para los botones de acción */
 .task-actions {
     position: absolute;
-    bottom: 20px;
-    right: 20px;
+    top: 10px;
+    
 }
