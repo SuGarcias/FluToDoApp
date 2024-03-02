@@ -1,0 +1,47 @@
+/* Estilos específicos para formularios */
+
+.form-container {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 500px; /* Ancho máximo del formulario */
+    margin: 0 auto; /* Centrar horizontalmente */
+}
+
+.form-container h1 {
+    text-align: center; /* Centrar título */
+    margin-bottom: 20px; /* Espacio inferior */
+}
+
+.form-container form {
+    display: flex; /* Usar flexbox para organizar elementos */
+    flex-direction: column; /* Apilar elementos verticalmente */
+}
+
+.form-container label {
+    margin-bottom: 10px; /* Espacio inferior */
+}
+
+.form-container input[type="text"],
+.form-container textarea,
+.form-container select {
+    padding: 10px;
+    margin-bottom: 10px; /* Espacio inferior */
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.form-container button {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-container button:hover {
+    background-color: #555;
+}

@@ -7,9 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Task</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/task.css' %}">
 </head>
 <body>
-    <h1>Create Task</h1>
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="navbar-title">Create Task</h1>
+        </div>
+    </nav>
     <div class="form-container">
         <form method="post">
             {% csrf_token %}
@@ -18,7 +23,7 @@
             <label for="description">Description:</label>
             <textarea id="description" name="description" required></textarea>
             <label for="due_date">Due Date:</label>
-            <input type="date" id="due_date" name="due_date" required>
+            <input type="date" id="due_date" name="due_date" >
             <label for="priority">Priority:</label>
             <select id="priority" name="priority">
                 <option value="HIGH">High</option>
