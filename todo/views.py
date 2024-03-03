@@ -2,9 +2,13 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Task
 from .forms import TaskForm
+from django.db.models import Case, Value, When
 
 def task_list(request):
-    tasks = Task.objects.all().order_by('priority')
+    priority_order = {'HIGH': 1, 'MEDIUM': 2, 'LOW': 3}
+    tasks = Task.objects.all().order_by(Case(
+        *[When(priority=priority, then=Value(index)) for priority, index in priority_order.items()]
+    ))
     return render(request, 'task_list.html', {'tasks': tasks})
 
 def create_task(request):
