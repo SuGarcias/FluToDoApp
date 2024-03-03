@@ -18,11 +18,11 @@ FluToDo is a simple to-do list application for Fluendo developed using Django fr
 - Use the "+" button to create a new task.
 ![Create new Task](/img/createTask.png)
 
-- Click on a task card to view its details or mark it as done.
+- Click on a task card to view its details 
 ![Tasks Details on Click](/img/onClick.png)
 
 - Edit or delete tasks using the provided buttons.
 ![Edit Tasks](/img/editTask.png)
 
-- Check the checkbox to mark the task done.
+- Check the checkbox to mark the task as done.
 ![Check the Checkbox](/img/onCheck.png)
