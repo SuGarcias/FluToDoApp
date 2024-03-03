@@ -1,5 +1,40 @@
 /* Estilos específicos para tareas */
 
+h1 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    font-size: 36px; 
+    color: #333; 
+    text-align: center; 
+    margin-bottom: 20px; 
+    text-transform: uppercase; 
+    letter-spacing: 2px; 
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+
+.task-buttons {
+    text-align: left;
+    font-size: 36px;
+    padding: 5px;
+}
+
+.task-buttons .btn {
+    width: 15px; 
+    height: 30px;
+    border-radius: 50%; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+}
+
+.task-list{
+    margin: 20px 0;
+}
 .task-item {
     position: relative;
     background-color: #fff;
@@ -18,23 +53,22 @@
 
 .task-header {
     display: flex;
-    align-items: center; /* Alinear al centro verticalmente */
-    justify-content: space-between; /* Espacio uniforme entre los elementos */
+    align-items: center; 
+    justify-content: space-between; 
 }
 
 .task-title {
     font-size: 24px;
     color: #797979;
     text-align: left;
-    margin-left: 10px; /* Espacio entre la checkbox y el título */
-    flex-grow: 1; /* Permite que el título ocupe el espacio restante */
+    margin-left: 10px; 
+    flex-grow: 1; 
 }
 
 .task-toggle {
     margin-right: 10px;
-    align-self: center; /* Alinear el checkbox al centro verticalmente */
+    align-self: center; 
 }
-
 .task-toggle-checkbox {
     display: none;
 }
@@ -54,16 +88,15 @@
 
 .task-title {
     margin-top: 0;
-    margin-bottom: 10px; /* Espacio entre el título y los botones */
-    font-weight: bold; /* Texto en negrita */
+    margin-bottom: 10px; 
+    font-weight: bold; 
 }
-
 .task-title.completed {
     text-decoration: line-through;
 }
 
 .task-details {
-    margin-top: 10px; /* Espacio entre el título y los botones */
+    margin-top: 10px; 
     display: none;
 }
 
@@ -71,9 +104,9 @@
     display: block;
 }
 
-/* Estilos para los botones de acción */
 .task-actions {
     position: absolute;
     top: 10px;
     
 }
+

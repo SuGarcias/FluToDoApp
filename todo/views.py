@@ -28,17 +28,13 @@ def edit_task(request, task_id):
         form = TaskForm(instance=task)
     return render(request, 'edit_task.html', {'form': form})
 
-def mark_task_done(request, task_id):
+
+def toggle_task(request, task_id):
     task = get_object_or_404(Task, pk=task_id)
-    task.done = True
+    task.done = not task.done  
     task.save()
     return redirect('task_list')
 
-def mark_task_pending(request, task_id):
-    task = get_object_or_404(Task, pk=task_id)
-    task.done = False
-    task.save()
-    return redirect('task_list')
 
 def delete_task(request, task_id):
     task = get_object_or_404(Task, pk=task_id)

@@ -4,15 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To Do App - Task List</title>
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>FluToDo For Fluendo</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/task.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    
 </head>
 <body>
     <div class="container">
-        <h1>To Do App - Task List</h1>
+        <h1>FluToDo For Fluendo</h1>
         <div class="task-buttons">
-            <a href="{% url 'create_task' %}" class="btn">Create New Task</a>
+            <a href="{% url 'create_task' %}" class="btn">+</a>
         </div>
         <ul class="task-list">
             {% for task in tasks %}
@@ -41,18 +42,37 @@
             {% endfor %}
         </ul>
     </div>
-<script>
-    function toggleTaskStatus(checkbox, taskId) {
-        const taskTitle = checkbox.parentNode.nextElementSibling;
-        taskTitle.classList.toggle('completed');
-    }
-
-    function toggleTaskDetails(taskHeader) {
-        const details = taskHeader.querySelector('.task-details');
-        taskHeader.parentNode.classList.toggle('expanded');
-        details.classList.toggle('expanded');
-    }
-</script>
+    <script>
+        function toggleTaskStatus(checkbox, taskId) {
+            const isChecked = checkbox.checked;
+            fetch(`/toggle_task/${taskId}/`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': '{{ csrf_token }}'
+                },
+                body: JSON.stringify({ checked: isChecked })
+            })
+            .then(response => {
+                if (response.ok) {
+                    const taskTitle = checkbox.parentNode.nextElementSibling;
+                    taskTitle.classList.toggle('completed', isChecked);
+                } else {
+                    console.error('Error changing task status');
+                }
+            })
+            .catch(error => {
+                console.error('Network Error:', error);
+            });
+        }
+    
+        function toggleTaskDetails(taskHeader) {
+            const details = taskHeader.querySelector('.task-details');
+            taskHeader.parentNode.classList.toggle('expanded');
+            details.classList.toggle('expanded');
+        }
+    </script>
+    
 
 </body>
 </html>

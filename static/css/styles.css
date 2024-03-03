@@ -15,7 +15,6 @@ body {
     padding: 20px;
 }
 
-/* Encabezado */
 header {
     background-color: #333;
     color: #fff;
@@ -27,7 +26,6 @@ h1, h2 {
     margin-bottom: 20px;
 }
 
-/* Botones */
 .btn {
     padding: 10px 20px;
     background-color: #333;
@@ -41,7 +39,6 @@ h1, h2 {
     background-color: #555;
 }
 
-/* Estilos para los botones de acción */
 .task-actions {
     position: absolute;
     bottom: 20px;

@@ -30,7 +30,10 @@
                 <option value="MEDIUM" {% if form.priority.value == "MEDIUM" %}selected{% endif %}>Medium</option>
                 <option value="LOW" {% if form.priority.value == "LOW" %}selected{% endif %}>Low</option>
             </select>
-            <button type="submit">Save Changes</button>
+            <div class="button-container">
+                <button type="submit" class="btn">Save Changes</button>
+                <a href="{% url 'task_list' %}" class="btn btn-cancel">Cancel</a>
+            </div>
         </form>
     </div>
 </body>
